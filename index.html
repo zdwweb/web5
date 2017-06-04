@@ -1,0 +1,48 @@
+
+<html>
+<head>
+<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+function Myfunction(){
+	var tbl = document.getElementById('mtbl');
+	var txt=document.getElementById("demo").value;
+        var num=Number(txt);
+	if(num<=0 || num>9)
+	{
+		alert("输入数字必须为1-9");
+                return false;
+        }
+	for (var i=1;i<=num;i++){
+		var trEl = document.createElement("tr");
+		for(var j=1;j<=i;j++){
+	   var tdEl=document.createElement("td");
+           tdEl.innerHTML=" "+j+"x"+i+"="+j*i+" ";
+           trEl.appendChild(tdEl);
+		}
+		
+		tbl.appendChild(trEl);
+
+
+	}
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#mtbl").empty();
+  });
+});
+
+}
+	
+</script>
+
+</head>
+
+<body onload="Myfunction">
+<h4>在文本框中输入数字绘制乘法表</h4>
+<input type="text" id="demo">
+<input type="button" value="确认" onclick="Myfunction()">
+<button>清空</button>
+<table id="mtbl">
+</table>
+</body>
+</html>
